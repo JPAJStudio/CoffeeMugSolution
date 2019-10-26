@@ -27,7 +27,6 @@ namespace CoffeeMug.Infrastructure.Repositories
         {
             _context.Products.Add(Product);
             _context.SaveChanges();
-            //_products.Add(Product);
             return await Task.FromResult(Product.Id);
         }
         
