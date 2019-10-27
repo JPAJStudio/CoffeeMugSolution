@@ -12,7 +12,7 @@ namespace CoffeeMug.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class ProductsController : Controller
     {
         private IProductsService _productService;
         public ProductsController(IProductsService productService)
@@ -24,9 +24,10 @@ namespace CoffeeMug.Api.Controllers
         public async Task<IActionResult> Get()
         {
             var products = await _productService.List();
-
-            return new JsonResult(products);
+            
+            return Json(products);
         }
+
 
         [HttpGet("{productId}")]
         public async Task<IActionResult> Get(Guid productId)

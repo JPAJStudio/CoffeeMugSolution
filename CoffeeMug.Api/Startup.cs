@@ -37,7 +37,10 @@ namespace CoffeeMug.Api
                     p => p.MigrationsAssembly("CoffeeMug.Api"));
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                .AddJsonOptions(x => x.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented);
+
             services.AddScoped<IProductsRepository, ProductsRepository>();
             services.AddScoped<IProductsService, ProductsService>();
             services.AddSingleton(AutoMapperConfig.Initailize());
@@ -54,6 +57,12 @@ namespace CoffeeMug.Api
             {
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
+            }
+            
+            using(var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetRequiredService<MyDatabaseContext>();
+                context.Database.EnsureCreated();
             }
 
             app.UseHttpsRedirection();
