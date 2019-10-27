@@ -15,4 +15,8 @@
     <ProjectReference Include="..\CoffeeMug.Infrastructure\CoffeeMug.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="PostmanTests\" />
+  </ItemGroup>
+
 </Project>

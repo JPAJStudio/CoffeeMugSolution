@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "6b81e99a-8f05-48fc-aa0b-7451e02d84d9",
+		"name": "Products",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GetProducts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://coffeemugapi2019.azurewebsites.net/api/products/",
+					"protocol": "https",
+					"host": [
+						"coffeemugapi2019",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"products",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetProduct",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://coffeemugapi2019.azurewebsites.net/api/products/<PRODUCT_ID>",
+					"protocol": "https",
+					"host": [
+						"coffeemugapi2019",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"products",
+						"<PRODUCT_ID>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateProduct",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ProductName\": \"<NEW_PRODUCT_NAME>\",\n\t\"ProductPrice\": <NEW_PRODUCT_PRICE>\n}"
+				},
+				"url": {
+					"raw": "https://coffeemugapi2019.azurewebsites.net/api/products/<PRODUCT_ID>",
+					"protocol": "https",
+					"host": [
+						"coffeemugapi2019",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"products",
+						"<PRODUCT_ID>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteProduct",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://coffeemugapi2019.azurewebsites.net/api/products/<PRODUCT_ID>",
+					"protocol": "https",
+					"host": [
+						"coffeemugapi2019",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"products",
+						"<PRODUCT_ID>"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateProduct",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"ProductName\": \"<PRODUCT_NAME>\",\n\t\"ProductPrice\": <PRODUCT_PRICE>\n}"
+				},
+				"url": {
+					"raw": "https://coffeemugapi2019.azurewebsites.net/api/products",
+					"protocol": "https",
+					"host": [
+						"coffeemugapi2019",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
