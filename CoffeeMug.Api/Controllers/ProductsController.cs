@@ -40,6 +40,11 @@ namespace CoffeeMug.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] CreateProduct command)
         {
+            if (!Validator.CreateProductValidation.CreatProductValidate.Validate(command))
+            {
+                return BadRequest();
+            }
+
             var result = await _productService.AddProduct(command.ProductName, command.ProductPrice);
             return new JsonResult(result);
         }
@@ -47,6 +52,11 @@ namespace CoffeeMug.Api.Controllers
         [HttpPut("{productId}")]
         public async Task<IActionResult> Put(Guid productId, [FromBody] UpdateProduct command)
         {
+            if (!Validator.UpdateProductValidation.UpdateProductValidate.Validate(command))
+            {
+                return BadRequest();
+            }
+
             await _productService.UpdateProduct(productId, command.ProductName, command.ProductPrice);
             return NoContent();
         }

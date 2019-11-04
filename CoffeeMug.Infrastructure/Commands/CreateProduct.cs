@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 
 namespace CoffeeMug.Infrastructure.Commands
 {
+    //PN - niepusty, krotszy niz 100
+    //PP - wieksza od 0
     public class CreateProduct
     {
         public string ProductName { get; set; }
