@@ -10,6 +10,7 @@ namespace CoffeeMug.Infrastructure.DAL
 {
     public class MyDatabaseContext : DbContext
     {
+		int a = 0;
         public MyDatabaseContext(DbContextOptions<MyDatabaseContext> options)
             : base(options)
         { }
