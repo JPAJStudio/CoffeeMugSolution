@@ -8,6 +8,8 @@ namespace CoffeeMug.Core.Repositories
 {
     public interface IProductsRepository
     {
+		Task<IEnumerable<Product>> List2();
+		
         Task<IEnumerable<Product>> List();
 
         Task<Product> GetProductById(Guid Id);
